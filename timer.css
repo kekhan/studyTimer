@@ -1,0 +1,13 @@
+input{
+	height: 50px;
+	width: 50px;
+	margin: auto;
+	margin-left: 100px;
+}
+.well{
+	width: 300px;
+	height: 300px;
+	margin-left: 150px;
+	border-radius: 50%;
+	
+}
