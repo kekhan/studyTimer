@@ -18,24 +18,24 @@
   <body>
   	<div class ="container-fluid">
   		<br><br>
-  		<div class="row">
-  			<div id="sy"class="col-md-6 well">
-  				<p class="text-center">set study time</p>
-  				<input id="study" type="number" min="1"
-  				align="center">
-
-  			</div>
-  			<div id ="breakScreen" class="col-md-6 well">
-  				<p class="text-center"> set break time</p>
-  				<input id ="break" type="number" min="1">
-  			</div>
-  		</div>
-  		<br><br>
   		<div class ="row">
-  			<div  id ="screen"class ="col-md-12 well"><p class="text-center">screen</p></div>
+  			<div  id ="screen"class ="col-md-12 well">
+           <button class="button btn btn-primary btn-block" onclick="studyTimer()">Start</button>
+           <button class="stop btn btn-danger btn-block" onclick="stoptime()">Stop</button>
+           <input id ="break" type="number" value=0 min="1" onclick="setBreakTime()">break<br>
+           <input id="study" type="number" min="1"
+          value=0
+          align="center" onclick="setstudyTime()">study
+
+          <p id="title" class="text-center"></p>
+          <p id ="showtime"class="text-center">screen</p></div>
+         
   		</div>
+      
   		
   	</div>
+  </div>
+    <script src="timer.js"></script>
 
   </body>
 </html>
