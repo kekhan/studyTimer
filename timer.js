@@ -1,4 +1,8 @@
-var myVar;
+
+var myVar;// needs to be global for stop button to stop time
+var audio = new Audio('demi.mp3');// global because audio pause works
+
+
 function setstudyTime(){
 	var studyTime = document.getElementById('study').value;
 	studyTime=Number(studyTime);
@@ -8,6 +12,7 @@ function setstudyTime(){
 	return covertStudyTime;
 
 }
+
 
 function setBreakTime(){
 	var breakTime = document.getElementById('break').value;
@@ -19,6 +24,8 @@ function setBreakTime(){
 	return convertedTime;
 
 }
+
+
 function screen(time,title){
 	var titletoscreen = document.getElementById('title').innerHTML=title;
 	if(time ===1){
@@ -31,24 +38,35 @@ function screen(time,title){
 	
 
 }
+
+
 function studyTimer(){
+	//audio.removeAttribute('src');
+	//clearInterval(music);
+	audio.pause();
+	audio.currentTime = 0.0;
 	var ms=setstudyTime();
 	myVar = setInterval(breakt,ms);
-	document.getElementById('showtime').innerHTML="studyTime "+myVar;
+	document.getElementById('showtime').innerHTML="studyTime";
 	console.log(ms);
+	console.log("back to studying");
 
 }
+
 
 function breakt(){
 	var bms = setBreakTime();
 	myVar = setInterval(studyTimer,bms);
-	document.getElementById('showtime').innerHTML="Take a Break!";
-	var audio = new Audio('audio_file.mp3');
+	console.log("playing song");
 	audio.play();
+	//music = setInterval(playsong(),bms);
+	document.getElementById('showtime').innerHTML="Take a Break!";
 }
+
 function stoptime(){
 	clearInterval(myVar);
+	audio.pause();
+	audio.currentTime = 0.0;
 	document.getElementById('showtime').innerHTML="time cleared";
-
-
 }
+

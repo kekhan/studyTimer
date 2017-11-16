@@ -20,15 +20,21 @@
   		<br><br>
   		<div class ="row">
   			<div  id ="screen"class ="col-md-12 well">
-           <button class="button btn btn-primary btn-block" onclick="studyTimer()">Start</button>
+         
+           <button class="button btn btn-success btn-block" onclick="studyTimer()">Start</button>
            <button class="stop btn btn-danger btn-block" onclick="stoptime()">Stop</button>
-           <input id ="break" type="number" value=0 min="1" onclick="setBreakTime()">break<br>
+         
+
+           <br><br>
+           <input id ="break" type="number" value=0 min="1" onclick="setBreakTime()">select break time<br><br>
            <input id="study" type="number" min="1"
           value=0
-          align="center" onclick="setstudyTime()">study
+          align="center" onclick="setstudyTime()">select study time
+          <br><br>
 
           <p id="title" class="text-center"></p>
           <p id ="showtime"class="text-center">screen</p></div>
+
          
   		</div>
       

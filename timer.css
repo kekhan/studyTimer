@@ -3,16 +3,21 @@ input{
 	width: 50px;
 	margin: auto;
 	margin-left: 100px;
+	
 }
 .well{
-	width: 300px;
-	height: 300px;
+	width: 400px;
+	height: 400px;
 	margin-left: 150px;
 	border-radius: 50%;
+	background-color: red;
 	
 }
 .button{
 	margin:auto;
 	margin-left: 100px: 
 
+}
+p{
+	font-size: 20px;
 }
