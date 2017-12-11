@@ -20,17 +20,20 @@
   		<br><br>
   		<div class ="row">
   			<div  id ="screen"class ="col-md-12 well">
+          <div class = "wrapper">
          
-           <button class="button btn btn-success btn-block" onclick="studyTimer()">Start</button>
-           <button class="stop btn btn-danger btn-block" onclick="stoptime()">Stop</button>
-         
+             <button class="button btn btn-success" onclick="studyTimer()">Start</button>
+             <button class="stop btn btn-danger" onclick="stoptime()">Stop</button>
+           </div>
 
            <br><br>
-           <input id ="break" type="number" value=0 min="1" onclick="setBreakTime()">select break time<br><br>
+           <input id ="break" type="number" value=0 min="1" onclick="getBreakTime()">select break time<br><br>
            <input id="study" type="number" min="1"
           value=0
-          align="center" onclick="setstudyTime()">select study time
+          align="center" onclick="getStudyTime()">select study time
           <br><br>
+          <input id="min" type="text"> Min
+          <input id ="sec" type="text">Sec
 
           <p id="title" class="text-center"></p>
           <p id ="showtime"class="text-center">screen</p></div>

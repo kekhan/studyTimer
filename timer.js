@@ -1,9 +1,16 @@
 
 var myVar;// needs to be global for stop button to stop time
 var audio = new Audio('demi.mp3');// global because audio pause works
+var minute=60*1000;
+var min;
+var secs;
+var outbreak;
+var outstudy;
+var count=1000;
 
 
-function setstudyTime(){
+
+function getStudyTime(){
 	var studyTime = document.getElementById('study').value;
 	studyTime=Number(studyTime);
 	var title = "Study";
@@ -12,9 +19,10 @@ function setstudyTime(){
 	return covertStudyTime;
 
 }
+//console.log(mins);
 
 
-function setBreakTime(){
+function getBreakTime(){
 	var breakTime = document.getElementById('break').value;
 	breakTime=Number(breakTime);
 	console.log(typeof(breakTime));
@@ -41,13 +49,17 @@ function screen(time,title){
 
 
 function studyTimer(){
-	//audio.removeAttribute('src');
-	//clearInterval(music);
+	console.log(count);
+
+	var ms=getStudyTime();
 	audio.pause();
+	min = ms/minute;
+	secs=min*60;
+	document.getElementById('screen').style.backgroundColor="#00586D";
+	outstudy= setTimeout('countdown()',1000);
 	audio.currentTime = 0.0;
-	var ms=setstudyTime();
 	myVar = setInterval(breakt,ms);
-	document.getElementById('showtime').innerHTML="studyTime";
+	document.getElementById('showtime').innerHTML=""
 	console.log(ms);
 	console.log("back to studying");
 
@@ -55,18 +67,64 @@ function studyTimer(){
 
 
 function breakt(){
-	var bms = setBreakTime();
+	count+=count;
+	console.log("in breakt");
+	var bms = getBreakTime();
+	min = bms/minute;
+	secs = min*60;
+	outbreak= setTimeout('countdown2()',1000);
+	document.getElementById('screen').style.backgroundColor='#D62C5B';
 	myVar = setInterval(studyTimer,bms);
 	console.log("playing song");
 	audio.play();
-	//music = setInterval(playsong(),bms);
 	document.getElementById('showtime').innerHTML="Take a Break!";
 }
 
 function stoptime(){
+	document.getElementById('screen').style.backgroundColor="#E5E7E7";
 	clearInterval(myVar);
+	document.getElementById('min').value="";
+	document.getElementById('sec').value="";
 	audio.pause();
 	audio.currentTime = 0.0;
 	document.getElementById('showtime').innerHTML="time cleared";
 }
+
+function countdown(){
+	mtime = document.getElementById('min');
+	stime = document.getElementById('sec');
+	if(stime <59){
+		stime.value = secs;
+	}
+	else{
+		mtime.value = setMinutes();
+		stime.value = setSeconds();
+	}
+	--secs;
+	setTimeout('countdown()',1000);
+}
+function countdown2(){
+	mtime = document.getElementById('min');
+	stime = document.getElementById('sec');
+	if(stime <59){
+		stime.value = secs;
+	}
+	else{
+		mtime.value = setMinutes();
+		stime.value = setSeconds();
+	}
+	setTimeout('countdown2()',1000);
+}
+
+function setMinutes(){
+	min = Math.floor(secs/60);
+	return min;
+
+}
+function setSeconds(){
+	return secs - Math.round(min*60);
+
+}
+
+
 
